@@ -1,0 +1,5 @@
+{
+  "description": "${DESCRIPTION}",
+  "enable": "${TOGGLE_ENABLED}",
+  "uid": "${TOGGLE_NAME}"
+}

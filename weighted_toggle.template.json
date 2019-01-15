@@ -1,0 +1,14 @@
+{
+  "description": "${DESCRIPTION}",
+  "enable": true,
+  "flippingStrategy": {
+    "initParams": {
+      "weight": "${WEIGHT}"
+    },
+    "type": "org.ff4j.strategy.PonderationStrategy"
+  },
+  "permissions": [
+    "cmc-new-features-consent-given"
+  ],
+  "uid": "${WEIGHTED_TOGGLE_NAME}"
+}
