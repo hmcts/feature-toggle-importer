@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-if [ ${VERBOSE} = "true" ]; then
+if [ ! -z "$VERBOSE" ] && [ -e "$VERBOSE" ]; then
   export CURL_OPTS="-v"
 else
   export CURL_OPTS="--fail --silent"
@@ -11,7 +11,7 @@ function add_weighted_toggle() {
   export DESCRIPTION="${2}"
   export WEIGHT="${3}"
 
-  echo -e "Adding ${WEIGHTED_TOGGLE_NAME} with weight ${WEIGHT} and ${DESCRIPTION}"
+  echo -e "${FEATURE_TOGGLE_API_URL} ::: adding ${WEIGHTED_TOGGLE_NAME} with weight ${WEIGHT} and ${DESCRIPTION}"
 
   envsubst < /weighted_toggle.template.json > /"${WEIGHTED_TOGGLE_NAME}".json
 
@@ -19,7 +19,7 @@ function add_weighted_toggle() {
    -H 'Content-Type: application/json' \
    -u admin@example.com:Password12 \
    -d @/"${WEIGHTED_TOGGLE_NAME}".json \
-   http://feature-toggle-api:8580/api/ff4j/store/features/"${WEIGHTED_TOGGLE_NAME}"
+   "${FEATURE_TOGGLE_API_URL}""${WEIGHTED_TOGGLE_NAME}"
 }
 
 function add_toggle() {
@@ -35,7 +35,7 @@ function add_toggle() {
    -H 'Content-Type: application/json' \
    -u admin@example.com:Password12 \
    -d @/"${TOGGLE_NAME}".json \
-   http://feature-toggle-api:8580/api/ff4j/store/features/"${TOGGLE_NAME}"
+   "${FEATURE_TOGGLE_API_URL}""${TOGGLE_NAME}"
 }
 
 add_weighted_toggle cmc_admissions 'CMC admissions' '1.0'
