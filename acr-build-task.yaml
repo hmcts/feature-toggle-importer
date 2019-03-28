@@ -1,0 +1,15 @@
+version: 1.0-preview-1
+steps:
+
+  - id: build
+    build: >
+      -t {{.Run.Registry}}/hmcts/feature-toggle-importer:latest -t {{.Run.Registry}}/hmcts/feature-toggle-importer:{{.Run.ID}}
+      .
+    keep: true
+
+  - id: push
+    push:
+      - "{{.Run.Registry}}/hmcts/feature-toggle-importer:{{.Run.ID}}"
+      - "{{.Run.Registry}}/hmcts/feature-toggle-importer:latest"
+    when:
+      - build
