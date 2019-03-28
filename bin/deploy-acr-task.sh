@@ -3,7 +3,7 @@ set -e
 
 az account set --subscription DCD-CNP-DEV
 az acr task create \
-    --registry hmctspublic \
+    --registry hmcts \
     --name task-feature-toggle-importer \
     --file acr-build-task.yaml \
     --context https://github.com/hmcts/feature-toggle-importer.git \

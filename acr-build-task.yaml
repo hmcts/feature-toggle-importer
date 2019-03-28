@@ -3,13 +3,13 @@ steps:
 
   - id: build
     build: >
-      -t {{.Run.Registry}}/hmctspublic/feature-toggle-importer:latest -t {{.Run.Registry}}/hmctspublic/feature-toggle-importer:{{.Run.ID}}
+      -t {{.Run.Registry}}/hmcts/feature-toggle-importer:latest -t {{.Run.Registry}}/hmcts/feature-toggle-importer:{{.Run.ID}}
       .
     keep: true
 
   - id: push
     push:
-      - "{{.Run.Registry}}/hmctspublic/feature-toggle-importer:{{.Run.ID}}"
-      - "{{.Run.Registry}}/hmctspublic/feature-toggle-importer:latest"
+      - "{{.Run.Registry}}/hmcts/feature-toggle-importer:{{.Run.ID}}"
+      - "{{.Run.Registry}}/hmcts/feature-toggle-importer:latest"
     when:
       - build
