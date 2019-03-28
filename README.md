@@ -4,6 +4,8 @@ Docker image to setup feature toggles used via FF4J feature-toggle-api (https://
 
 ## Building
 
+Dockerhub (https://cloud.docker.com/u/hmcts/repository/docker/hmcts/feature-toggle-importer) is deprecated - please use ACR.
+
 Any commit or merge into master will automatically trigger an Azure ACR task. This task has been manually
 created using `./bin/deploy-acr-task.sh`. The task is defined in `acr-build-task.yaml`. 
 
