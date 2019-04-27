@@ -26,7 +26,7 @@ Note: for `add-weighted-toggle` you can set permissions with environment variabl
 docker-compose.yaml snippet:
 ```
     feature-toggle-importer:
-      image: hmcts/feature-toggle-importer
+      image: hmctspublic.azurecr.io/hmcts/feature-toggle-importer
       command: >
         sh -c "/scripts/add-weighted-toggle.sh cmc_admissions 'CMC admissions' '1.0' &&
                /scripts/add-toggle.sh cmc_defence_reminders 'CMC defence reminders' false"
